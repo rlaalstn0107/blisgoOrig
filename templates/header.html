@@ -1,0 +1,16 @@
+<!--data-w-id 의 의미를 전혀 모르겠습니다.-->
+<div data-collapse="medium" data-animation="default" data-duration="400" role="banner" class="header-navbar w-nav">
+    <header class="header-menu-container w-container">
+      <a href="{{ url_for('index') }}" data-w-id="488d2efe-3f49-805d-a2d9-dcf0bf619c0e" class="header-link-home w-nav-brand"><img src="{{url_for('static', filename='images/home.svg')}}" loading="lazy" height="30" width="30" alt=""></a>
+      <nav role="navigation" class="w-nav-menu">
+        <a href="{{ url_for('loginmethod') }}" data-w-id="488d2efe-3f49-805d-a2d9-dcf0bf619c19" class="header-menu-link w-nav-link">로그인</a>
+        <a href="{{ url_for('classification') }}" data-w-id="488d2efe-3f49-805d-a2d9-dcf0bf619c11" class="header-menu-link w-nav-link">사진 촬영</a>
+        <a href="{{ url_for('pending') }}" data-w-id="488d2efe-3f49-805d-a2d9-dcf0bf619c17" class="header-menu-link w-nav-link">분석 중</a>
+        <a href="{{ url_for('analyze') }}" data-w-id="488d2efe-3f49-805d-a2d9-dcf0bf619c13" class="header-menu-link w-nav-link">결과</a>
+        <a href="{{ url_for('report') }}" data-w-id="488d2efe-3f49-805d-a2d9-dcf0bf619c15" class="header-menu-link w-nav-link">보고</a>
+      </nav>
+      <div class="menu-button w-nav-button">
+        <div class="w-icon-nav-menu"></div>
+      </div>
+    </header>
+  </div>

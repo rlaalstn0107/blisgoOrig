@@ -1,0 +1,58 @@
+<!DOCTYPE html><!--  This site was created in Webflow. http://www.webflow.com  -->
+<!--  Last Published: Thu May 13 2021 08:31:11 GMT+0000 (Coordinated Universal Time)  -->
+<html data-wf-page="609b6f35a3dedf64f7964a46" data-wf-site="609a6a98f923748d29d9bec3">
+<head>
+  
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
+  <title>Classification</title>
+  {% include 'head.html' %}
+</head>
+<body>
+  {% include 'header.html' %}
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <script>
+            alert("{{messages[-1]}}")
+        </script>
+    {% endif %}
+  {% endwith %}
+  <section class="classification-section">
+    <div class="classification-video-div" style="text-align: center;">
+      <video width="640" height="480" playsinline autoplay></video>
+      <canvas style="display:none;"></canvas><br>
+      <script>
+        var date = new Date();
+        var newfilename = date.getFullYear() + "_" + (date.getMonth()+1) + "_" + date.getDate()+
+            "_" + date.getHours()+ "_" + date.getMinutes()+ "_" + date.getSeconds();
+//        document.write("<a id=\"downloada\" href=\"\">");  // <!--<a id="downlada" href=""> -->
+//        document.write("<button>Take snapshot</button></a>");  //    <!--<button>Take snapshot</button></a> -->
+      </script>
+
+      <div class="classification-video-div-sub">물품을 카메라에 보여주고 Take snapshot 버튼을 눌러주세요. 그 다음 Predict 버튼을 눌러주세요!</div>
+      <div class="classification-columns w-row">
+        <div class="classification-column-downloada w-col w-col-6 w-col-small-6 w-col-tiny-tiny-stack">
+          <a id="downloada" href="">
+            <button class="downloada w-button">SnapShot</button>
+          </a>
+        </div>
+        <div class="classification-column-predict w-col w-col-6 w-col-small-6 w-col-tiny-tiny-stack">
+          <form action="{{ url_for('predict')}}" method="POST" enctype="multipart/form-data">
+            <textarea id="textArea" name="textArea" cols="110" rows="10" style="display: none;"></textarea>
+            <textarea id="textArea2" name="textArea2" cols="110" rows="10" style="display: none;"></textarea>
+            <input class="predict w-button" type="submit" id="predict" value="Predict">
+          </form>
+        </div>
+      </div>
+      <!--
+      <a id="downloada" href="" download="{{now}}.png"><button>Take snapshot</button> </a>
+      -->
+    </div>
+  </section>
+  {% include 'footer.html' %}
+  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=609a6a98f923748d29d9bec3" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  
+  <script src="{{ url_for('static',filename='js/main.js') }}" type="text/javascript"></script>
+  <script src="{{ url_for('static',filename='js/webflow.js') }}" type="text/javascript"></script>
+  <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
+</body>
+</html>
